@@ -1,14 +1,14 @@
-¬package agh.ics.oop;
+package agh.ics.oop;
 
 public class World {
     public World() {
     }
 
     public static void main(String[] args) {
-        System.out.println("system wystartowaĹ‚");
+        System.out.println("system wystartował");
         String[] Directions = new String[]{"FORWARD", "BACKWARD", "RIGHT", "LEFT"};
         run(Directions);
-        System.out.println("system zakoĹ„czyĹ‚ dziaĹ‚anie");
+        System.out.println("system zakończył działanie");
     }
 
     public static void run(String[] args) {
