@@ -6,21 +6,32 @@ public class World {
 
     public static void main(String[] args) {
         System.out.println("system wystartował");
-        String[] Directions = new String[]{"FORWARD", "BACKWARD", "RIGHT", "LEFT"};
-        run(Directions);
+        Direction[] arguments = new Direction[args.length];
+        for (int i = 0; i < args.length; i++){
+            Direction message = switch (args[i]) {             //args[i] bo to rozpatrujemy w switch casie
+                case "f" -> Direction.FORWARD;
+                case "b" -> Direction.BACKWARD;
+                case "l" -> Direction.LEFT;
+                case "r" -> Direction.RIGHT;
+                default -> Direction.NOMOVE;
+            };
+            arguments[i] = message;
+        }
+        run(arguments);
         System.out.println("system zakończył działanie");
     }
 
-    public static void run(String[] args) {
-        System.out.println("zwierzak idzie do przodu");
-        String[] var1 = args;
-        int var2 = args.length;
-
-        for(int var3 = 0; var3 < var2; ++var3) {
-            String element = var1[var3];
-            System.out.println(element);
+    public static void run(Direction[] args) {
+        for (Direction i: args){
+            String message = switch (i){
+                case FORWARD -> "Zwierzak idzie do przodu";
+                case BACKWARD -> "Zwierzak idzie do tyłu";
+                case LEFT -> "Zwierzak skręca w lewo";
+                case RIGHT -> "Zwierzak skręca w prawo";
+                default -> "";
+            };
+            System.out.println(message);
         }
-
     }
 }
 
