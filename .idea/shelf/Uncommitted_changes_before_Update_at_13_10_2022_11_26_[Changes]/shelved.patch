@@ -1,0 +1,215 @@
+Index: src/main/java/agh/ics/oop/World.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package agh.ics.oop;\r\n\r\npublic class World {\r\n    public World() {\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n        System.out.println(\"system wystartował\");\r\n        String[] Directions = new String[]{\"FORWARD\", \"BACKWARD\", \"RIGHT\", \"LEFT\"};\r\n        run(Directions);\r\n        System.out.println(\"system zakończył działanie\");\r\n    }\r\n\r\n    public static void run(String[] args) {\r\n        System.out.println(\"zwierzak idzie do przodu\");\r\n        String[] var1 = args;\r\n        int var2 = args.length;\r\n\r\n        for(int var3 = 0; var3 < var2; ++var3) {\r\n            String element = var1[var3];\r\n            System.out.println(element);\r\n        }\r\n\r\n    }\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/agh/ics/oop/World.java b/src/main/java/agh/ics/oop/World.java
+--- a/src/main/java/agh/ics/oop/World.java	(revision 9291af2816186d64096f86476ca471b2fd31b5ba)
++++ b/src/main/java/agh/ics/oop/World.java	(date 1665653188721)
+@@ -1,26 +1,24 @@
+ package agh.ics.oop;
+ 
++import java.util.logging.Level;
++
+ public class World {
+-    public World() {
+-    }
+-
+     public static void main(String[] args) {
+         System.out.println("system wystartował");
+-        String[] Directions = new String[]{"FORWARD", "BACKWARD", "RIGHT", "LEFT"};
+-        run(Directions);
++        run();
+         System.out.println("system zakończył działanie");
+     }
+-
+-    public static void run(String[] args) {
+-        System.out.println("zwierzak idzie do przodu");
+-        String[] var1 = args;
+-        int var2 = args.length;
+-
+-        for(int var3 = 0; var3 < var2; ++var3) {
+-            String element = var1[var3];
+-            System.out.println(element);
++    public static void run() {
++        for(Direction val : Direction.values()){
++            System.out.println(val);
++            String message = switch (val) {
++                case "f" -> "Zwierzak idzie do przodu";
++                case "b" -> "Zwierzak idzie do tyłu";
++                case "r" -> "Zwierzak idzie w prawo";
++                case "l" -> "Zwierzak idzie w lewo";
++                default -> "";
++            };
+         }
+-
+     }
+ }
+ 
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"GradleSettings\">\r\n    <option name=\"linkedExternalProjectsSettings\">\r\n      <GradleProjectSettings>\r\n        <option name=\"distributionType\" value=\"DEFAULT_WRAPPED\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"modules\">\r\n          <set>\r\n            <option value=\"$PROJECT_DIR$\" />\r\n          </set>\r\n        </option>\r\n      </GradleProjectSettings>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/gradle.xml b/.idea/gradle.xml
+--- a/.idea/gradle.xml	(revision 9291af2816186d64096f86476ca471b2fd31b5ba)
++++ b/.idea/gradle.xml	(date 1665061400457)
+@@ -1,5 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="GradleMigrationSettings" migrationVersion="1" />
+   <component name="GradleSettings">
+     <option name="linkedExternalProjectsSettings">
+       <GradleProjectSettings>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"aab30b21-4157-49d1-bc92-34b15d6d82e7\" name=\"Changes\" comment=\"commit 1\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ExternalProjectsData\">\r\n    <projectState path=\"$PROJECT_DIR$\">\r\n      <ProjectState />\r\n    </projectState>\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"branch1\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2FkwJE6hrhjHzHnpKaBrGKEpbII\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"WebServerToolWindowFactoryState\": \"false\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"aab30b21-4157-49d1-bc92-34b15d6d82e7\" name=\"Changes\" comment=\"\" />\r\n      <created>1665049318022</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1665049318022</updated>\r\n      <workItem from=\"1665049321651\" duration=\"1062000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"commit 1\">\r\n      <created>1665049382000</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1665049382000</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"commit 1\">\r\n      <created>1665049667434</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1665049667434</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"commit 1\">\r\n      <created>1665050374279</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1665050374279</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"commit 1\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"commit 1\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 9291af2816186d64096f86476ca471b2fd31b5ba)
++++ b/.idea/workspace.xml	(date 1665653145794)
+@@ -4,7 +4,12 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="aab30b21-4157-49d1-bc92-34b15d6d82e7" name="Changes" comment="commit 1" />
++    <list default="true" id="aab30b21-4157-49d1-bc92-34b15d6d82e7" name="Changes" comment="commit 1">
++      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Direction.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/World.java" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -19,6 +24,7 @@
+     <option name="RECENT_TEMPLATES">
+       <list>
+         <option value="Class" />
++        <option value="Enum" />
+       </list>
+     </option>
+   </component>
+@@ -39,11 +45,65 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "WebServerToolWindowFactoryState": "false"
+-  }
+-}]]></component>
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
++  }
++}</component>
++  <component name="RunManager" selected="Application.agh.ics.oop.World">
++    <configuration name="World" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="World" />
++      <module name="oolab.main" />
++      <option name="PROGRAM_PARAMETERS" value="f f r l" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <configuration name="agh.ics.oop.World" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="agh.ics.oop.World" />
++      <module name="oolab.main" />
++      <option name="PROGRAM_PARAMETERS" value="f f r l k f" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="agh.ics.oop.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <configuration name="oolab" type="GradleRunConfiguration" factoryName="Gradle" nameIsGenerated="true">
++      <ExternalSystemSettings>
++        <option name="executionName" />
++        <option name="externalProjectPath" value="$PROJECT_DIR$" />
++        <option name="externalSystemIdString" value="GRADLE" />
++        <option name="scriptParameters" value="" />
++        <option name="taskDescriptions">
++          <list />
++        </option>
++        <option name="taskNames">
++          <list />
++        </option>
++        <option name="vmOptions" />
++      </ExternalSystemSettings>
++      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
++      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
++      <DebugAllEnabled>false</DebugAllEnabled>
++      <method v="2" />
++    </configuration>
++    <list>
++      <item itemvalue="Application.agh.ics.oop.World" />
++      <item itemvalue="Application.World" />
++      <item itemvalue="Gradle.oolab" />
++    </list>
++    <recent_temporary>
++      <list>
++        <item itemvalue="Application.agh.ics.oop.World" />
++        <item itemvalue="Application.World" />
++      </list>
++    </recent_temporary>
++  </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+@@ -52,7 +112,9 @@
+       <option name="number" value="Default" />
+       <option name="presentableId" value="Default" />
+       <updated>1665049318022</updated>
+-      <workItem from="1665049321651" duration="1062000" />
++      <workItem from="1665049321651" duration="3639000" />
++      <workItem from="1665060545163" duration="609000" />
++      <workItem from="1665653115492" duration="30000" />
+     </task>
+     <task id="LOCAL-00001" summary="commit 1">
+       <created>1665049382000</created>
+@@ -75,7 +137,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1665050374279</updated>
+     </task>
+-    <option name="localTasksCounter" value="4" />
++    <task id="LOCAL-00004" summary="commit 1">
++      <created>1665050595359</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1665050595359</updated>
++    </task>
++    <option name="localTasksCounter" value="5" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+Index: src/main/java/agh/ics/oop/Direction.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/agh/ics/oop/Direction.java b/src/main/java/agh/ics/oop/Direction.java
+new file mode 100644
+--- /dev/null	(date 1665052262978)
++++ b/src/main/java/agh/ics/oop/Direction.java	(date 1665052262978)
+@@ -0,0 +1,8 @@
++package agh.ics.oop;
++
++public enum Direction {
++    FORWARD,
++    BACKWARD,
++    RIGHT,
++    LEFT,
++}

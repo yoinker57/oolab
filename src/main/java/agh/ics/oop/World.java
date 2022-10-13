@@ -8,7 +8,7 @@ public class World {
         System.out.println("system wystartował");
         Direction[] arguments = new Direction[args.length];
         for (int i = 0; i < args.length; i++){
-            Direction message = switch (args[i]) {             //args[i] bo to rozpatrujemy w switch casie
+            Direction message = switch (args[i]) {
                 case "f" -> Direction.FORWARD;
                 case "b" -> Direction.BACKWARD;
                 case "l" -> Direction.LEFT;
