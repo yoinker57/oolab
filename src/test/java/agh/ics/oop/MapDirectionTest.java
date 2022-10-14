@@ -1,6 +1,5 @@
 package agh.ics.oop;
 
-import agh.ics.oop.World;
 import org.junit.jupiter.api.Test;
 
 import static org.testng.Assert.*;
@@ -22,12 +21,4 @@ public class MapDirectionTest {
     }
 }
 
-public class Vector2dTest{
-    @Test
-    public void Testequals(){
-        assertTrue();
-        assertTrue();
-        assertFalse();
-        assertFalse();
-    }
-}
+
