@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aab30b21-4157-49d1-bc92-34b15d6d82e7" name="Changes" comment="lab2">
-      <change afterPath="$PROJECT_DIR$/src/test/java/agh/ics/oop/Vector2dTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Vector2d.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/agh/ics/oop/MapDirectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/agh/ics/oop/MapDirectionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/World.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/agh/ics/oop/Vector2dTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/agh/ics/oop/Vector2dTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,8 +60,8 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
   }
 }</component>
-  <component name="RunManager" selected="Gradle.Vector2dTest.TestSubtract">
-    <configuration name="Vector2dTest.TestAdd" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.Vector2dTest">
+    <configuration name="MapDirectionTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -73,7 +74,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;agh.ics.oop.Vector2dTest.TestAdd&quot;" />
+            <option value="&quot;agh.ics.oop.MapDirectionTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -83,7 +84,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Vector2dTest.TestSubtract" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Vector2dTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -96,7 +97,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;agh.ics.oop.Vector2dTest.TestSubtract&quot;" />
+            <option value="&quot;agh.ics.oop.Vector2dTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -106,7 +107,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Vector2dTest.Testfollows" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Vector2dTest.Testequals" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -119,7 +120,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;agh.ics.oop.Vector2dTest.Testfollows&quot;" />
+            <option value="&quot;agh.ics.oop.Vector2dTest.Testequals&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -129,7 +130,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Vector2dTest.TestlowerLeft" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Vector2dTest.Testopposite" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -142,7 +143,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;agh.ics.oop.Vector2dTest.TestlowerLeft&quot;" />
+            <option value="&quot;agh.ics.oop.Vector2dTest.Testopposite&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -177,11 +178,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Vector2dTest.TestSubtract" />
-        <item itemvalue="Gradle.Vector2dTest.TestAdd" />
-        <item itemvalue="Gradle.Vector2dTest.TestlowerLeft" />
+        <item itemvalue="Gradle.Vector2dTest" />
+        <item itemvalue="Gradle.MapDirectionTest" />
+        <item itemvalue="Gradle.Vector2dTest.Testopposite" />
         <item itemvalue="Gradle.Vector2dTest.TestupperRight" />
-        <item itemvalue="Gradle.Vector2dTest.Testfollows" />
+        <item itemvalue="Gradle.Vector2dTest.Testequals" />
       </list>
     </recent_temporary>
   </component>
@@ -196,7 +197,8 @@
       <workItem from="1665049321651" duration="1062000" />
       <workItem from="1665658210049" duration="8000" />
       <workItem from="1665666158068" duration="2679000" />
-      <workItem from="1665744694251" duration="6999000" />
+      <workItem from="1665744694251" duration="7877000" />
+      <workItem from="1666257720942" duration="2837000" />
     </task>
     <task id="LOCAL-00001" summary="commit 1">
       <created>1665049382000</created>
@@ -226,7 +228,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665749296424</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="lab2">
+      <created>1665752650700</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1665752650700</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
