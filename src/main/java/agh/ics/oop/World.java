@@ -5,8 +5,8 @@ public class World {
     public World() {
     }
     public static void main(String[] args) {
-        MapDirection dir = MapDirection.EAST;
-        System.out.println(dir.toUnitVector());
+        Animal kazio = new Animal();
+        System.out.println(kazio);
 
     }
 
@@ -18,10 +18,10 @@ enum MapDirection {
 
     public String toString(){
         return switch (this) {
-            case NORTH -> "Północ";
-            case SOUTH -> "Południe";
-            case EAST -> "Wschód";
-            case WEST -> "Zachód";
+            case NORTH -> "Polnoc";
+            case SOUTH -> "Poludnie";
+            case EAST -> "Wschod";
+            case WEST -> "Zachod";
         };
     }
     public MapDirection next(){
