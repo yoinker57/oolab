@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aab30b21-4157-49d1-bc92-34b15d6d82e7" name="Changes" comment="lab3">
-      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Animal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/agh/ics/oop/AnimalTest.java" afterDir="false" />
+    <list default="true" id="aab30b21-4157-49d1-bc92-34b15d6d82e7" name="Changes" comment="lab2">
+      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/MoveDirection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/OptionsParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_10_2022_11_26__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_10_2022_11_26__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Animal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/World.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/agh/ics/oop/AnimalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/agh/ics/oop/AnimalTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +37,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -60,21 +64,8 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.World">
-    <configuration name="World" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="agh.ics.oop.World" />
-      <module name="oolab.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="agh.ics.oop.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AnimalTest.TestisPosition" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.AnimalTest.test3">
+    <configuration name="AnimalTest.test1" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -87,7 +78,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;agh.ics.oop.AnimalTest.TestisPosition&quot;" />
+            <option value="&quot;agh.ics.oop.AnimalTest.test1&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -97,7 +88,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="AnimalTest.TesttoString" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="AnimalTest.test2" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -110,7 +101,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;agh.ics.oop.AnimalTest.TesttoString&quot;" />
+            <option value="&quot;agh.ics.oop.AnimalTest.test2&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -120,7 +111,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="MapDirectionTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="AnimalTest.test3" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -133,7 +124,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;agh.ics.oop.MapDirectionTest&quot;" />
+            <option value="&quot;agh.ics.oop.AnimalTest.test3&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -143,7 +134,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Vector2dTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="AnimalTest.testBadMap" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -156,7 +147,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;agh.ics.oop.Vector2dTest&quot;" />
+            <option value="&quot;agh.ics.oop.AnimalTest.testBadMap&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -166,13 +157,43 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="AnimalTest.testBasic" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;agh.ics.oop.AnimalTest.testBasic&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Gradle.AnimalTest.test1" />
+      <item itemvalue="Gradle.AnimalTest.test2" />
+      <item itemvalue="Gradle.AnimalTest.test3" />
+      <item itemvalue="Gradle.AnimalTest.testBadMap" />
+      <item itemvalue="Gradle.AnimalTest.testBasic" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.World" />
-        <item itemvalue="Gradle.AnimalTest.TestisPosition" />
-        <item itemvalue="Gradle.AnimalTest.TesttoString" />
-        <item itemvalue="Gradle.Vector2dTest" />
-        <item itemvalue="Gradle.MapDirectionTest" />
+        <item itemvalue="Gradle.AnimalTest.test3" />
+        <item itemvalue="Gradle.AnimalTest.test2" />
+        <item itemvalue="Gradle.AnimalTest.testBasic" />
+        <item itemvalue="Gradle.AnimalTest.testBadMap" />
+        <item itemvalue="Gradle.AnimalTest.test1" />
       </list>
     </recent_temporary>
   </component>
@@ -188,7 +209,7 @@
       <workItem from="1665658210049" duration="8000" />
       <workItem from="1665666158068" duration="2679000" />
       <workItem from="1665744694251" duration="7877000" />
-      <workItem from="1666257720942" duration="4407000" />
+      <workItem from="1666257720942" duration="2837000" />
     </task>
     <task id="LOCAL-00001" summary="commit 1">
       <created>1665049382000</created>
@@ -225,14 +246,7 @@
       <option name="project" value="LOCAL" />
       <updated>1665752650700</updated>
     </task>
-    <task id="LOCAL-00006" summary="lab3">
-      <created>1666261357916</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1666261357916</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -252,7 +266,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit 1" />
     <MESSAGE value="lab2" />
-    <MESSAGE value="lab3" />
-    <option name="LAST_COMMIT_MESSAGE" value="lab3" />
+    <option name="LAST_COMMIT_MESSAGE" value="lab2" />
   </component>
 </project>

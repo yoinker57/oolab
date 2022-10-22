@@ -6,6 +6,10 @@ public class World {
     }
     public static void main(String[] args) {
         Animal kazio = new Animal();
+        MoveDirection[] directions = OptionsParser.parse(args);
+        for (MoveDirection direction : directions){
+            kazio.move(direction);
+        }
         System.out.println(kazio);
 
     }
@@ -51,3 +55,11 @@ enum MapDirection {
     }
 }}
 
+
+//String[] test1tab = {"r", "right", "forward", "left", "forward", "f", "r"}
+//Animal animal = new Animal();
+//    MoveDirection[] directions = OptionsParser.parse(test1tab);
+//        for (MoveDirection direction : directions){
+//                animal.move(direction);
+//                }
+//                assertEquals(animal, "((4,1) Poludnie)");

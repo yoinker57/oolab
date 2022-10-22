@@ -13,10 +13,26 @@ public class Animal {
         return this.position.x == position.x & this.position.y == position.y;
     }
 
-    public void move(Direction direction){
-        switch (direction){
-            case RIGHT -> this.direction.next();
-            case LEFT -> this.direction.previous();
-        };
+    public void move(MoveDirection dir) {
+        if (dir != null) {
+            switch (dir) {
+                case RIGHT:
+                    direction = direction.next();
+                    break;
+                case LEFT:
+                    direction = direction.previous();
+                    break;
+                case FORWARD:
+                    if (position.add(direction.toUnitVector()).precedes(new Vector2d(4, 4)) && position.add(direction.toUnitVector()).follows(new Vector2d(0, 0))) {
+                        position = position.add(direction.toUnitVector());
+                    }
+                    break;
+                case BACKWARD:
+                    if (position.subtract(direction.toUnitVector()).follows(new Vector2d(0, 0)) && position.subtract(direction.toUnitVector()).precedes(new Vector2d(4, 4))) {
+                        position = position.subtract(direction.toUnitVector());
+                    }
+                    break;
+            }
+        }
     }
 }
