@@ -14,6 +14,7 @@ public class AnimalTest {
                 System.out.println(animal);
             }
             assertEquals(animal.toString(), "((4,1), Poludnie)");
+
     }
 
     @Test
