@@ -11,10 +11,8 @@ public class AnimalTest {
         MoveDirection[] directions = OptionsParser.parse(new String[]{"r", "right", "f", "l", "ka","f", "f", "r"});
             for (MoveDirection dir : directions) {
                 animal.move(dir);
-                System.out.println(animal);
             }
             assertEquals(animal.toString(), "((4,1), Poludnie)");
-
     }
 
     @Test
@@ -23,7 +21,6 @@ public class AnimalTest {
         MoveDirection[] directions = OptionsParser.parse(new String[]{"f", "f", "f", "f", "l"});
         for (MoveDirection dir : directions) {
             animal.move(dir);
-            System.out.println(animal);
         }
         assertEquals(animal.toString(), "((2,4), Zachod)");
     }
@@ -31,10 +28,9 @@ public class AnimalTest {
     @Test
     void test3(){
         Animal animal = new Animal();
-        MoveDirection[] directions = OptionsParser.parse(new String[]{"f", "f", "kondys", "l", "l", "kul", "f"});
+        MoveDirection[] directions = OptionsParser.parse(new String[]{"f", "f", "kons", "l", "l", "kul", "f"});
         for (MoveDirection dir : directions) {
             animal.move(dir);
-            System.out.println(animal);
         }
         assertEquals(animal.toString(), "((2,3), Poludnie)");
     }

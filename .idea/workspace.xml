@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aab30b21-4157-49d1-bc92-34b15d6d82e7" name="Changes" comment="lab2">
-      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/MoveDirection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/OptionsParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_10_2022_11_26__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_10_2022_11_26__Changes_.xml" afterDir="false" />
+    <list default="true" id="aab30b21-4157-49d1-bc92-34b15d6d82e7" name="Changes" comment="lab3">
+      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/IEngine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/IWorldMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_10_2022_11_26__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Animal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/World.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Direction.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/agh/ics/oop/AnimalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/agh/ics/oop/AnimalTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,6 +38,7 @@
       <list>
         <option value="Class" />
         <option value="Enum" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -64,8 +65,8 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
   }
 }</component>
-  <component name="RunManager" selected="Gradle.AnimalTest.test3">
-    <configuration name="AnimalTest.test1" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.AnimalTest">
+    <configuration name="AnimalTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -78,7 +79,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;agh.ics.oop.AnimalTest.test1&quot;" />
+            <option value="&quot;agh.ics.oop.AnimalTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -181,7 +182,7 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Gradle.AnimalTest.test1" />
+      <item itemvalue="Gradle.AnimalTest" />
       <item itemvalue="Gradle.AnimalTest.test2" />
       <item itemvalue="Gradle.AnimalTest.test3" />
       <item itemvalue="Gradle.AnimalTest.testBadMap" />
@@ -189,11 +190,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.AnimalTest" />
         <item itemvalue="Gradle.AnimalTest.test3" />
         <item itemvalue="Gradle.AnimalTest.test2" />
         <item itemvalue="Gradle.AnimalTest.testBasic" />
         <item itemvalue="Gradle.AnimalTest.testBadMap" />
-        <item itemvalue="Gradle.AnimalTest.test1" />
       </list>
     </recent_temporary>
   </component>
@@ -210,6 +211,8 @@
       <workItem from="1665666158068" duration="2679000" />
       <workItem from="1665744694251" duration="7877000" />
       <workItem from="1666257720942" duration="2837000" />
+      <workItem from="1666862698483" duration="4642000" />
+      <workItem from="1666961194463" duration="1111000" />
     </task>
     <task id="LOCAL-00001" summary="commit 1">
       <created>1665049382000</created>
@@ -246,7 +249,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665752650700</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="lab3">
+      <created>1666715118691</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1666715118691</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,6 +276,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit 1" />
     <MESSAGE value="lab2" />
-    <option name="LAST_COMMIT_MESSAGE" value="lab2" />
+    <MESSAGE value="lab3" />
+    <option name="LAST_COMMIT_MESSAGE" value="lab3" />
   </component>
 </project>

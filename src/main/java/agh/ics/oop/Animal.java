@@ -14,6 +14,8 @@ public class Animal {
     }
 
     public void move(MoveDirection dir) {
+        Vector2d ogr1 = new Vector2d(0,0);
+        Vector2d ogr2 = new Vector2d(4,4);
         if (dir != null) {
             switch (dir) {
                 case RIGHT:
@@ -23,12 +25,12 @@ public class Animal {
                     direction = direction.previous();
                     break;
                 case FORWARD:
-                    if (position.add(direction.toUnitVector()).precedes(new Vector2d(4, 4)) && position.add(direction.toUnitVector()).follows(new Vector2d(0, 0))) {
+                    if (position.add(direction.toUnitVector()).precedes(ogr2) && position.add(direction.toUnitVector()).follows(ogr1)) {
                         position = position.add(direction.toUnitVector());
                     }
                     break;
                 case BACKWARD:
-                    if (position.subtract(direction.toUnitVector()).follows(new Vector2d(0, 0)) && position.subtract(direction.toUnitVector()).precedes(new Vector2d(4, 4))) {
+                    if (position.subtract(direction.toUnitVector()).follows(ogr1) && position.subtract(direction.toUnitVector()).precedes(ogr2)) {
                         position = position.subtract(direction.toUnitVector());
                     }
                     break;
