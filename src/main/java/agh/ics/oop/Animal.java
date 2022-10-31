@@ -1,37 +1,69 @@
 package agh.ics.oop;
 
 public class Animal {
-    private World.MapDirection direction = World.MapDirection.NORTH;
+    private World.MapDirection orientation = World.MapDirection.NORTH;
     private Vector2d position = new Vector2d(2,2);
+    private IWorldMap map;
+
+    public Vector2d getPosition(){
+        return position;
+    }
+    public World.MapDirection getOrientation() {
+        return orientation;
+    }
+
+    public void setPosition(Vector2d position) {
+        this.position = position;
+    }
+
+    public void setOrientation(World.MapDirection orientation) {
+        this.orientation = orientation;
+    }
+
+    public IWorldMap getMap() {
+        return map;
+    }
+
+    public void setMap(IWorldMap map) {
+        this.map = map;
+    }
+
+    public Animal(IWorldMap map, Vector2d initialPosition) {
+        this.map = map;
+        this.position = initialPosition;
+    }
+
 
     public String toString(){
-        return "(" + this.position.toString() + ", " + this.direction + ")";
-    }
-    public boolean isAt(Vector2d position){
-        if (this.position == position)
-            return true;
-        return this.position.x == position.x & this.position.y == position.y;
+        return switch(orientation){
+            case NORTH -> "N";
+            case EAST -> "E";
+            case WEST -> "W";
+            case SOUTH -> "S";
+        };
     }
 
-    public void move(MoveDirection dir) {
-        Vector2d ogr1 = new Vector2d(0,0);
-        Vector2d ogr2 = new Vector2d(4,4);
-        if (dir != null) {
-            switch (dir) {
+    public boolean isAt(Vector2d position){
+        return  this.position.equals(position);
+    }
+
+    public void move(MoveDirection direction) {
+        if (direction != null) {
+            switch (direction) {
                 case RIGHT:
-                    direction = direction.next();
+                    orientation = orientation.next();
                     break;
                 case LEFT:
-                    direction = direction.previous();
+                    orientation = orientation.previous();
                     break;
                 case FORWARD:
-                    if (position.add(direction.toUnitVector()).precedes(ogr2) && position.add(direction.toUnitVector()).follows(ogr1)) {
-                        position = position.add(direction.toUnitVector());
+                    if (map.canMoveTo(position.add(orientation.toUnitVector()))) {
+                        position = position.add(orientation.toUnitVector());
                     }
                     break;
                 case BACKWARD:
-                    if (position.subtract(direction.toUnitVector()).follows(ogr1) && position.subtract(direction.toUnitVector()).precedes(ogr2)) {
-                        position = position.subtract(direction.toUnitVector());
+                    if (map.canMoveTo(position.subtract(orientation.toUnitVector()))) {
+                        position = position.subtract(orientation.toUnitVector());
                     }
                     break;
             }
