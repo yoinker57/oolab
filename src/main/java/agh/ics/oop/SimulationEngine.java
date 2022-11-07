@@ -16,12 +16,12 @@ public class SimulationEngine implements IEngine{
             map.place(new Animal(map, s));
         }
     }
-
+    @Override
     public void run() {
         placeAnimals();
         int i = 0;
         while (i < moves.length) {
-            for (Animal a : ((RectangularMap) map).getAnimals()) {
+            for (Animal a : ((GrassField) map).getAnimals()) {
                 if (i == moves.length) break;
                 a.move(moves[i]);
                 i++;

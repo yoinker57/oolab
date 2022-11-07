@@ -2,14 +2,15 @@ package agh.ics.oop;
 
 
 public class World {
-    public World() {
-    }
+//    public World() {
+//    }
     public static void main(String[] args) {
-        MoveDirection[] directions = new OptionsParser().parse(args);
-        IWorldMap map = new RectangularMap(10, 5);
+        MoveDirection[] directions = OptionsParser.parse(args);
+        IWorldMap map = new GrassField(10);
         Vector2d[] positions = { new Vector2d(2,2), new Vector2d(3,4) };
         IEngine engine = new SimulationEngine(directions, map, positions);
         engine.run();
+        MapVisualizer mapVisualizer = new MapVisualizer(map);
         System.out.println(map);
     }
 
@@ -55,10 +56,4 @@ enum MapDirection {
 }}
 
 
-//String[] test1tab = {"r", "right", "forward", "left", "forward", "f", "r"}
-//Animal animal = new Animal();
-//    MoveDirection[] directions = OptionsParser.parse(test1tab);
-//        for (MoveDirection direction : directions){
-//                animal.move(direction);
-//                }
-//                assertEquals(animal, "((4,1) Poludnie)");
+
