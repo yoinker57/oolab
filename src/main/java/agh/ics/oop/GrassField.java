@@ -13,11 +13,11 @@ public class GrassField extends AbstractWorldMap {
 
     private void placeGrass(int grassLimit) {
         Random rand = new Random();
-        int grassMaxCoord = (int) Math.sqrt(10 * grassLimit) + 1;
+        int Max = (int) Math.sqrt(10 * grassLimit) + 1;
 
         while (grass.size() < grassLimit) {
-            int randX = rand.nextInt(grassMaxCoord);
-            int randY = rand.nextInt(grassMaxCoord);
+            int randX = rand.nextInt(Max);
+            int randY = rand.nextInt(Max);
             Vector2d grassPosition = new Vector2d(randX, randY);
             if (objectAt(grassPosition) == null) {
                 grass.add(new Grass(grassPosition));
