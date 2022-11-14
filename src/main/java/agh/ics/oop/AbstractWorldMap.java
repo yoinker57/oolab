@@ -1,64 +1,57 @@
 package agh.ics.oop;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-abstract class AbstractWorldMap implements IWorldMap {
+abstract class AbstractWorldMap implements IWorldMap,IPositionChangeObserver {
+    protected List<Animal> animalsList = new ArrayList<>();
+    protected Map<Vector2d, Animal> animals = new HashMap<>();
 
-    protected Vector2d lowerLeft;
-    protected Vector2d upperRight;
-    protected List<Animal> animals = new ArrayList<>();
+    protected Map<Vector2d, Grass> grasses = new HashMap<Vector2d, Grass>();
 
-    public List<Animal> getAnimals() {
-        return animals;
-    }
+    protected final MapVisualizer visualize = new MapVisualizer(this);
 
-    public abstract Vector2d getLowerLeft();
-
-    public abstract Vector2d getUpperRight();
-
-    public String toString() {
-        return new MapVisualizer(this).draw(getLowerLeft(), getUpperRight());
-    }
-
-    @Override
-    public boolean isOccupied(Vector2d position) {
-        for (Animal a : animals) {
-            if (a.isAt(position)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    @Override
-    public Object objectAt(Vector2d position) {
-        for (Animal a : animals) {
-            if (a.isAt(position)) {
-                return a;
-            }
-        }
-        return null;
-    }
 
     @Override
     public boolean canMoveTo(Vector2d position) {
-        for (Animal a : animals) {
-            if (a.isAt(position)) {
-                return false;
-            }
-        }
-        return true;
+        return (!animals.containsKey(position));
     }
 
     @Override
     public boolean place(Animal animal) {
-        Vector2d animalPosition = animal.getPosition();
-
-        if (canMoveTo(animalPosition)) {
-            animals.add(animal);
-            return true;
+        if(this.animals.get(animal.getPosition()) != null){
+            return false;
         }
-        return false;
+        this.animalsList.add(animal);
+        this.animals.put(animal.getPosition(),animal);
+        return true;
+    }
+
+    @Override
+    public boolean isOccupied(Vector2d position) {
+        return this.animals.get(position) != null || this.grasses.get(position) != null;
+    }
+
+    @Override
+    public Object objectAt(Vector2d position) {
+        if(this.animals.get(position) != null){
+            return this.animals.get(position);
+        }
+        if(this.grasses.get(position) != null){
+            return this.grasses.get(position);
+        }
+        return null;
+    }
+    @Override
+    public void positionChanged(Vector2d oldPosition, Vector2d newPosition) {
+        if(!newPosition.equals(oldPosition)) {
+            Animal a = animals.remove(oldPosition);
+            animals.put(newPosition, a);
+        }
+    }
+    public List<Animal> getAnimals(){
+        return this.animalsList;
     }
 }

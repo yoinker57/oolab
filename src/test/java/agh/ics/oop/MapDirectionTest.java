@@ -1,23 +1,22 @@
 package agh.ics.oop;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.testng.Assert.*;
-
 public class MapDirectionTest {
+
     @Test
-    public void Testnext() {
-        assertEquals(World.MapDirection.EAST.next(), World.MapDirection.SOUTH);
-        assertEquals(World.MapDirection.NORTH.next(), World.MapDirection.EAST);
-        assertEquals(World.MapDirection.SOUTH.next(), World.MapDirection.WEST);
-        assertEquals(World.MapDirection.WEST.next(), World.MapDirection.NORTH);
+    void next() {
+        Assertions.assertEquals(MapDirection.EAST,MapDirection.NORTH.next());
+        Assertions.assertEquals(MapDirection.SOUTH,MapDirection.EAST.next());
+        Assertions.assertEquals(MapDirection.WEST,MapDirection.SOUTH.next());
+        Assertions.assertEquals(MapDirection.NORTH,MapDirection.WEST.next());
     }
     @Test
-    public void Testprev() {
-        assertEquals(World.MapDirection.EAST.previous(), World.MapDirection.NORTH);
-        assertEquals(World.MapDirection.NORTH.previous(), World.MapDirection.WEST);
-        assertEquals(World.MapDirection.SOUTH.previous(), World.MapDirection.EAST);
-        assertEquals(World.MapDirection.WEST.previous(), World.MapDirection.SOUTH);
+    void previous(){
+        Assertions.assertEquals(MapDirection.WEST,MapDirection.NORTH.previous());
+        Assertions.assertEquals(MapDirection.NORTH,MapDirection.EAST.previous());
+        Assertions.assertEquals(MapDirection.EAST,MapDirection.SOUTH.previous());
+        Assertions.assertEquals(MapDirection.SOUTH,MapDirection.WEST.previous());
     }
 }
 

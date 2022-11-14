@@ -1,75 +1,70 @@
 package agh.ics.oop;
 
-public class Animal {
-    private World.MapDirection orientation = World.MapDirection.NORTH;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Animal extends AbstractWorldMapElement  {
+
+    private MapDirection direction=MapDirection.NORTH;
     private Vector2d position = new Vector2d(2,2);
-    private static IWorldMap map;
-
-    public Vector2d getPosition(){
-        return position;
+    private IWorldMap map;
+    private List<IPositionChangeObserver> observers = new ArrayList<IPositionChangeObserver>();
+    Animal(IWorldMap map){
+        this.map=map;
     }
-    public World.MapDirection getOrientation() {
-        return orientation;
+    Animal(IWorldMap map, Vector2d initialPosition){
+        this.map=map;
+        this.position=initialPosition;
     }
-
-    public void setPosition(Vector2d position) {
-        this.position = position;
+    public Vector2d getPosition() {
+        return this.position;
     }
-
-    public void setOrientation(World.MapDirection orientation) {
-        this.orientation = orientation;
+    public String getA(){
+        return position+" "+direction;
     }
-
-    public IWorldMap getMap() {
-        return map;
-    }
-
-    public void setMap(IWorldMap map) {
-        this.map = map;
-    }
-
-    public Animal(IWorldMap map) {
-        Animal.map = map;
-    }
-    public Animal(IWorldMap map, Vector2d initialPosition) {
-        this.map = map;
-        this.position = initialPosition;
-    }
-
-
     public String toString(){
-        return switch(orientation){
+        return switch(direction) {
             case NORTH -> "N";
             case EAST -> "E";
             case WEST -> "W";
             case SOUTH -> "S";
         };
     }
-
     public boolean isAt(Vector2d position){
-        return  this.position.equals(position);
+        return position.equals(this.position);
     }
-
-    public void move(MoveDirection direction) {
-        if (direction != null) {
-            switch (direction) {
-                case RIGHT:
-                    orientation = orientation.next();
-                    break;
-                case LEFT:
-                    orientation = orientation.previous();
-                    break;
-                case FORWARD:
-                    if (map.canMoveTo(position.add(orientation.toUnitVector()))) {
-                        position = position.add(orientation.toUnitVector());
-                    }
-                    break;
-                case BACKWARD:
-                    if (map.canMoveTo(position.subtract(orientation.toUnitVector()))) {
-                        position = position.subtract(orientation.toUnitVector());
-                    }
-                    break;
+    public void move(MoveDirection direction){
+        if(direction==MoveDirection.RIGHT){
+            this.direction=this.direction.next();
+        } else if (direction==MoveDirection.LEFT) {
+            this.direction=this.direction.previous();
+        }
+        else if (direction==MoveDirection.FORWARD) {
+            Vector2d temp=this.direction.toUnitVector();
+            Vector2d beforeTest=this.position.add(temp);
+            if (map.canMoveTo(beforeTest)) {
+                positionChanged(this.position,beforeTest);
+                this.position=beforeTest;
             }
+        }
+        else if (direction==MoveDirection.BACKWARD) {
+            Vector2d temp=this.direction.toUnitVector();
+            Vector2d beforeTest=this.position.subtract(temp);
+            if (map.canMoveTo(beforeTest)) {
+                positionChanged(this.position,beforeTest);
+                this.position=beforeTest;
+            }
+        }
+    }
+    public void addObserver(IPositionChangeObserver observer){
+        this.observers.add(observer);
+    }
+    public void removeObserver(IPositionChangeObserver observer){
+        this.observers.remove(observer);
+    }
+    void positionChanged(Vector2d oldPosition, Vector2d newPosition){
+        for (IPositionChangeObserver Observer: this.observers) {
+            Observer.positionChanged(oldPosition,newPosition);
         }
     }
 }

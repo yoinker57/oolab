@@ -1,82 +1,63 @@
 package agh.ics.oop;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.lang.Math;
+import java.util.Set;
 
 public class GrassField extends AbstractWorldMap {
+    private final int maxX;
+    private final int maxY;
 
-    protected List<Grass> grass = new ArrayList<>();
-    GrassField(int grassLimit) {
-        placeGrass(grassLimit);
-    }
-
-    private void placeGrass(int grassLimit) {
-        Random rand = new Random();
-        int Max = (int) Math.sqrt(10 * grassLimit) + 1;
-
-        while (grass.size() < grassLimit) {
-            int randX = rand.nextInt(Max);
-            int randY = rand.nextInt(Max);
-            Vector2d grassPosition = new Vector2d(randX, randY);
+    public GrassField(int grass){
+        this.maxX = (int)Math.sqrt(grass*10);
+        this.maxY = (int)Math.sqrt(grass*10);
+        while (grasses.size() < grass) {
+            int randx = (int)(Math.random()*(this.maxX +1));
+            int randy = (int)(Math.random()*(this.maxY +1));
+            Vector2d grassPosition = new Vector2d(randx, randy);
+            Grass grasss = new Grass(new Vector2d(randx,randy));
             if (objectAt(grassPosition) == null) {
-                grass.add(new Grass(grassPosition));
+                this.grasses.put(grasss.getPosition(),grasss);
             }
+
         }
+    }
+    @Override
+    public String toString() {
+        Set<Vector2d> animals_set = this.animals.keySet();
+        Set<Vector2d> grasses_set = this.grasses.keySet();
+        Vector2d vectorR = new Vector2d(0,0);
+        Vector2d vectorL = new Vector2d(0,0);
+        for (Vector2d vector : animals_set) {
+            vectorR = vectorR.upperRight(vector);
+            vectorL = vectorL.lowerLeft(vector);
+        }
+        for (Vector2d vector : grasses_set) {
+            vectorR = vectorR.upperRight(vector);
+            vectorL = vectorL.lowerLeft(vector);
+        }
+        return this.visualize.draw(vectorL,vectorR);
     }
 
     @Override
-    public boolean isOccupied(Vector2d position) {
-        for (Grass g : grass) {
-            if (g.getPosition().equals(position)) {
-                return true;
-            }
-        }
-        return super.isOccupied(position);
+    public boolean canMoveTo(Vector2d position) {
+        return super.canMoveTo(position);
     }
+
+    @Override
+    public boolean place(Animal animal) {
+        return super.place(animal);
+    }
+
 
     @Override
     public Object objectAt(Vector2d position) {
-        Object a = super.objectAt(position);
-        if (a != null) {
-            return a;
+        Object o = super.objectAt(position);
+        if (o != null) {
+            return o;
         }
-        for (Grass g : grass) {
-            if (g.getPosition().equals(position)) {
-                return g;
-            }
-        }
-        return null;
+        return grasses.get(position);
     }
-
     @Override
-    public Vector2d getLowerLeft() {
-        lowerLeft = new Vector2d(Integer.MAX_VALUE, Integer.MAX_VALUE);
-        for (Animal a : animals) {
-            lowerLeft = lowerLeft.lowerLeft(a.getPosition());
-        }
-        for (Grass g : grass) {
-            lowerLeft = lowerLeft.lowerLeft(g.getPosition());
-        }
-        return lowerLeft;
-    }
-
-    @Override
-    public Vector2d getUpperRight() {
-        upperRight = new Vector2d(0, 0);
-
-        for (Animal a : animals) {
-            upperRight = upperRight.upperRight(a.getPosition());
-        }
-
-        for (Grass g : grass) {
-            upperRight = upperRight.upperRight(g.getPosition());
-        }
-
-        return upperRight;
-    }
-
-    public List<Grass> getGrass() {
-        return grass;
+    public boolean isOccupied(Vector2d position) {
+        return grasses.containsKey(position) || super.isOccupied(position);
     }
 }
