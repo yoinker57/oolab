@@ -16,24 +16,20 @@ public class GrassField extends AbstractWorldMap {
             Grass grasss = new Grass(new Vector2d(randx,randy));
             if (objectAt(grassPosition) == null) {
                 this.grasses.put(grasss.getPosition(),grasss);
+                mapBoundary.put(grasss);
             }
 
         }
     }
     @Override
     public String toString() {
-        Set<Vector2d> animals_set = this.animals.keySet();
-        Set<Vector2d> grasses_set = this.grasses.keySet();
-        Vector2d vectorR = new Vector2d(0,0);
-        Vector2d vectorL = new Vector2d(0,0);
-        for (Vector2d vector : animals_set) {
-            vectorR = vectorR.upperRight(vector);
-            vectorL = vectorL.lowerLeft(vector);
-        }
-        for (Vector2d vector : grasses_set) {
-            vectorR = vectorR.upperRight(vector);
-            vectorL = vectorL.lowerLeft(vector);
-        }
+        this.mapBoundary.sortuj();
+        int x = this.mapBoundary.X_el.get(0).getPosition().x;
+        int y = this.mapBoundary.Y_el.get(0).getPosition().y;
+        Vector2d vectorL = new Vector2d(x,y);
+        x = this.mapBoundary.X_el.get(this.mapBoundary.X_el.size()-1).getPosition().x;
+        y = this.mapBoundary.Y_el.get(this.mapBoundary.Y_el.size()-1).getPosition().y;
+        Vector2d vectorR = new Vector2d(x,y);
         return this.visualize.draw(vectorL,vectorR);
     }
 

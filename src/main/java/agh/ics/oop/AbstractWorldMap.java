@@ -1,31 +1,52 @@
 package agh.ics.oop;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-abstract class AbstractWorldMap implements IWorldMap,IPositionChangeObserver {
+public abstract class AbstractWorldMap implements IWorldMap,IPositionChangeObserver {
     protected List<Animal> animalsList = new ArrayList<>();
     protected Map<Vector2d, Animal> animals = new HashMap<>();
 
     protected Map<Vector2d, Grass> grasses = new HashMap<Vector2d, Grass>();
 
     protected final MapVisualizer visualize = new MapVisualizer(this);
+    protected MapBoundary mapBoundary=new MapBoundary();
 
 
     @Override
     public boolean canMoveTo(Vector2d position) {
         return (!animals.containsKey(position));
     }
-
+    @Override
+    public String toString() {
+        this.mapBoundary.sortuj();
+        int x = this.mapBoundary.X_el.get(0).getPosition().x;
+        int y = this.mapBoundary.Y_el.get(0).getPosition().y;
+        Vector2d vectorL = new Vector2d(x,y);
+        x = this.mapBoundary.X_el.get(this.mapBoundary.X_el.size()-1).getPosition().x;
+        y = this.mapBoundary.Y_el.get(this.mapBoundary.Y_el.size()-1).getPosition().y;
+        Vector2d vectorR = new Vector2d(x,y);
+        return this.visualize.draw(vectorL,vectorR);
+    }
+    public Vector2d getLowerLeftDrawLimit(){
+        this.mapBoundary.sortuj();
+        int x = this.mapBoundary.X_el.get(0).getPosition().x;
+        int y = this.mapBoundary.Y_el.get(0).getPosition().y;
+        return new Vector2d(x,y);
+    }
+    public Vector2d getUpperRightDrawLimit(){
+        this.mapBoundary.sortuj();
+        int x = this.mapBoundary.X_el.get(this.mapBoundary.X_el.size()-1).getPosition().x;
+        int y = this.mapBoundary.Y_el.get(this.mapBoundary.Y_el.size()-1).getPosition().y;
+        return new Vector2d(x,y);
+    }
     @Override
     public boolean place(Animal animal) {
         if(this.animals.get(animal.getPosition()) != null){
-            return false;
+            throw new IllegalArgumentException(animal.getPosition()+ " is already occupied");
         }
         this.animalsList.add(animal);
         this.animals.put(animal.getPosition(),animal);
+        mapBoundary.put(animal);
         return true;
     }
 

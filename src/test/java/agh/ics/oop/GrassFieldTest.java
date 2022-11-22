@@ -15,7 +15,7 @@ public class GrassFieldTest {
     @Test
     void place(){
         Assertions.assertTrue(this.map.place(new Animal(this.map,new Vector2d(2,6))));
-        Assertions.assertFalse(this.map.place(new Animal(this.map,new Vector2d(2,6))));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> this.map.place(new Animal(this.map,new Vector2d(2,6))));
         Assertions.assertTrue(this.map.place(new Animal(this.map,new Vector2d(5,5))));
     }
     @Test
