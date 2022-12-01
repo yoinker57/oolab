@@ -29,12 +29,13 @@ public class MapBoundary implements IPositionChangeObserver{
         this.X_el.add(Element);
         this.Y_el.add(Element);
     }
-    public void sortuj(){
+    public void sortowanko(){
         X_el.sort(xComparator);
         Y_el.sort(yComparator);
     }
     @Override
     public void positionChanged(Vector2d oldPosition, Vector2d newPosition) {
-
+        X_el.sort(xComparator);
+        Y_el.sort(yComparator);
     }
 }

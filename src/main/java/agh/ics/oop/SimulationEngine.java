@@ -1,33 +1,66 @@
 package agh.ics.oop;
 
-public class SimulationEngine implements IEngine{
-    private IWorldMap map;
-    private MoveDirection[] moves;
-    private Vector2d[] startPositions;
+import agh.ics.oop.gui.App;
 
-    public SimulationEngine(MoveDirection[] moves,IWorldMap map,Vector2d[] startPositions){
-        this.map = map;
-        this.moves = moves;
-        this.startPositions = startPositions;
-    }
-    public void placeAnimals() {
-        for (Vector2d s : startPositions) {
-            Animal animal=new Animal(map, s);
-            animal.addObserver((IPositionChangeObserver) map);
-            map.place(animal);
+import java.util.List;
+
+public class SimulationEngine implements IEngine,Runnable {
+    private MoveDirection[] moves = new MoveDirection[]{};
+    private final IWorldMap map_animals;
+    App renderer;
+    int index;
+    int delay = 100;
+    public SimulationEngine(MoveDirection[] directions, AbstractWorldMap map_animals, Vector2d[] positions,App renderer){
+        this.renderer = renderer;
+        this.moves = directions;
+        this.map_animals = map_animals;
+        for (Vector2d position : positions) {
+            Animal animal = new Animal(this.map_animals, position);
+            animal.addObserver(map_animals);
+            animal.addObserver(this.map_animals.getBound());
+            if (renderer != null){
+                animal.addObserver(renderer);
+            }
+            this.map_animals.place(animal);
         }
+        this.map_animals.getBound().sortowanko();
     }
-
+    public SimulationEngine(AbstractWorldMap map_animals, Vector2d[] positions,App renderer){
+        this.renderer = renderer;
+        this.map_animals = map_animals;
+        for (Vector2d position : positions) {
+            Animal animal = new Animal(this.map_animals, position);
+            animal.addObserver(this.map_animals.getBound());
+            animal.addObserver(map_animals);
+            if (renderer != null){
+                animal.addObserver(renderer);
+            }
+            this.map_animals.place(animal);
+        }
+        this.map_animals.getBound().sortowanko();
+    }
     @Override
     public void run() {
-        placeAnimals();
-        int i = 0;
-        while (i < moves.length) {
-            for (Animal a : ((AbstractWorldMap) map).getAnimals()) {
-                if (i == moves.length) break;
-                a.move(moves[i]);
-                i++;
-            }
+        if (renderer != null) {
+            this.renderer.render();
         }
+        List<Animal> animals = this.map_animals.getArray();
+        this.index += 1;
+        for (int i=0;i<this.moves.length;i++){
+            try {
+                Thread.sleep(this.delay);
+            } catch (InterruptedException e) {
+                System.out.println("Error: Przerwano symulacje!");
+                throw new RuntimeException(e);
+            }
+            animals.get(i%animals.size()).move(this.moves[i]);
+
+        }
+    }
+    public void setDelay(int moveDelay){
+        this.delay = moveDelay;
+    }
+    public void setMoves(MoveDirection[] moves) {
+        this.moves = moves;
     }
 }
